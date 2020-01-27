@@ -10,5 +10,6 @@ export class HomePage {
 	title="the jungle"
 
   constructor() {}
+ 
 
 }

@@ -5,5 +5,11 @@
 </ion-header>
 
 <ion-content>
-
+	<ion-card class="welcome-card">
+		<ion-card-header>
+			<ion-card-title>{{dadosPost.nome_do_usuario}}</ion-card-title>
+			<ion-card-subtitle>{{dadosPost.comentario}}</ion-card-subtitle>
+			<ion-icon name="star" color='{{like_star(dadosPost.Curtir_Discurtir.quantidade_like,dadosPost.Curtir_Discurtir.quantidade_dislike)}}'></ion-icon>
+		</ion-card-header>
+	</ion-card>
 </ion-content>
