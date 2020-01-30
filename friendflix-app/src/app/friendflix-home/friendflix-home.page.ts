@@ -10,31 +10,57 @@ export class FriendflixHomePage implements OnInit {
   constructor() { }
   	//Post Page atributos
   dadosPost:object ={
-  	nome_do_usuario:'Gabriel',
-  	comentario:'Entre razões emoções, a saída,é fazer valer a pena!',
-  	horario:'14:43',
-  	titulo:'Post',
-  	Curtir_Discurtir:{
-  		botão_like:true,
-  		botão_dislike:false,
-  		quantidade_like:15,
-  		quantidade_dislike:15,
+  	"nomeDoUsuario":'Gabriel',
+  	"comentario":'Entre razões emoções, a saída,é fazer valer a pena!',
+  	"horario":'14:43',
+  	"titulo":'Post',
+  	"curtirDiscurtir":{
+  	"botaoLike":false,
+  	"botaoDislike":false,
+  	"quantidadeLike":15,
+  	"quantidadeDislike":25,
 		}
 	}
 
-like_star(quantidade_like:number, quantidade_dislike:number):string {
-	if (quantidade_like > quantidade_dislike){
-		return 'success';
-	}
-	else if (quantidade_dislike > quantidade_like) {
-		return 'danger';
-	}
-	else {
-		return 'light';
-	}
+
+
+// like_star(quantidadeLike:number, quantidadeDislike:number):string {
+// 	if (quantidadeLike > quantidadeDislike){
+// 		return 'success';
+// 	}
+// 	else if (quantidadeDislike > quantidadeLike) {
+// 		return 'danger';
+// 	}
+//   else (quantidadeLike = quantidadeDislike){
+//     return 'medium';
+//   }
+// }
+  like(dadosPost){
+  if (this.dadosPost.curtirDiscurtir.botaoLike) {
+  this.dadosPost.curtirDiscurtir.quantidadeLike--;
+
+ }
+  else{
+  this.dadosPost.curtirDiscurtir.quantidadeLike++;
+ }  
+  this.dadosPost.curtirDiscurtir.botaoLike = !this.dadosPost.curtirDiscurtir.botaoLike;
+  this.dadosPost.curtirDiscurtir.botaoDislike = false;
+
+}
+unlike(dadosPost){
+  if (this.dadosPost.curtirDiscurtir.botaoLike) {
+  this.dadosPost.curtirDiscurtir.quantidadeLike--;
+
+ }
+  else{
+  this.dadosPost.curtirDiscurtir.quantidadeDislike++;
+ }  
+  this.dadosPost.curtirDiscurtir.botaoDislike = !this.dadosPost.curtirDiscurtir.botaoDislike;
+  this.dadosPost.curtirDiscurtir.botaoLike = false; 
+
 }
 	 
   ngOnInit() {
-  }
+}
 
 }
