@@ -5,12 +5,17 @@
 </ion-header>
 
 <ion-content>
-	<ion-card class="welcome-card">
+	<ion-card class="welcome-card" *ngFor="let post of dadosPost">
 		<ion-card-header>
-			<ion-card-title>{{dadosPost.nomeDoUsuario}}</ion-card-title>
-			<ion-card-subtitle>{{dadosPost.comentario}}</ion-card-subtitle>
-			<ion-icon size="large" name="thumbs-up" (click)="like(dadosPost)" color="{{dadosPost.curtirDiscurtir.botaoLike ? 'success' : 'dark'}}"></ion-icon>
-			<ion-icon size="large" name="thumbs-down" (click)="unlike(dadosPost)" color="{{dadosPost.curtirDiscurtir.botaoDislike ? 'danger' : 'dark'}}"></ion-icon>
+			<ion-card-title> {{post.nomeDoUsuario}}</ion-card-title>
+			<ion-card-subtitle>{{post.comentario}}</ion-card-subtitle>
+        <ion-button class="botao" (click)="tiraSpoiler(post)" *ngIf="post.spoiler" ><ion-title color="danger" size="large">É SPOILER COMEDIA!!</ion-title></ion-button>
+			  <ion-icon size="large" name="thumbs-up" (click)="like(post)" color="{{post.curtirDiscurtir.botaoLike ? 'success' : 'dark'}}"></ion-icon>
+        {{post.curtirDiscurtir.quantidadeLike}}
+			 <ion-icon size="large" name="thumbs-down" (click)="unlike(post)" color="{{post.curtirDiscurtir.botaoDislike ? 'danger' : 'dark'}}"></ion-icon>
+       {{post.curtirDiscurtir.quantidadeDislike}}
 		</ion-card-header>
+    <!-- <app-post></app-post> -->
 	</ion-card>
+
 </ion-content>

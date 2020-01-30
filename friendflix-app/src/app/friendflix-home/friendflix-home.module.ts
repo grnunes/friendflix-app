@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { FriendflixHomePageRoutingModule } from './friendflix-home-routing.module';
 
 import { FriendflixHomePage } from './friendflix-home.page';
+import { ComponentsModule } from "../components.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FriendflixHomePageRoutingModule
+    FriendflixHomePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [FriendflixHomePage]
 })
